@@ -43,7 +43,8 @@ Bundle 'itspriddle/vim-jquery'
 " Bundle 'saltstack/salt-vim'
 Bundle 'ntpeters/vim-better-whitespace'
 " Bundle 'Valloric/YoucCompleteMe'
-Bundle 'shawncplus/phpcomplete.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'Shougo/neocomplcache.vim'
 
 " Python
 " Bundle 'nvie/vim-flake8'
