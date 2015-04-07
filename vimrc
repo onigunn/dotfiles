@@ -1,3 +1,4 @@
+
 set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -271,3 +272,8 @@ map <leader>t :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_console_startup = 0
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
