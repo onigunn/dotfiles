@@ -9,7 +9,7 @@ ln -sf ~/.dotfiles/tmux.conf .tmux.conf
 echo 'Installing Vundle'
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-if [ -d "~/.oh-my-zsh" ]; then
+if [ ! -d "~/.oh-my-zsh" ]; then
 	echo 'Installing oh-my-zsh'
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
