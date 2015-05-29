@@ -1,11 +1,11 @@
 #!/bin/sh
-export DOTFILES=~/.dotfiles
+DOTFILES=~/.dotfiles
 
 cd
 echo 'Setting up symlinks'
-ln -sf $DOTFILES/zshrc .zshrc
-ln -sf $DOTFILES/vimrc .vimrc
-ln -sf $DOTFILES/tmux.conf .tmux.conf
+ln -sf $DOTFILES/zshrc $HOME/.zshrc
+ln -sf $DOTFILES/vimrc $HOME/.vimrc
+ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 
 if [ ! -d "~/.vim/bundle/vundle" ]; then
 	echo 'Installing Vundle'
