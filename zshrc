@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+export DOTFILES=~/.dotfiles
 export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
