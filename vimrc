@@ -252,6 +252,7 @@ let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache ever
 let g:ctrlp_show_hidden = 0 " don't show me dotfiles
 let g:ctrlp_mruf_max = 250 " number of recently opened files
 nmap ; :CtrlPBuffer<CR>
+nmap <leader>f :CtrlP<CR>
 
 " Double rainbow - What does it mean!?
 let g:rainbow_active = 1
@@ -279,3 +280,6 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
+
+" Custom remappings
+
