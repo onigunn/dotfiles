@@ -3,7 +3,7 @@ export DOTFILES=~/.dotfiles
 export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
-[ -z "$TMUX" ] && export TERM=xterm-256color
+[ -z "$TMUX" ] && export TERM=screen-256color
 
 
 # Set name of the theme to load.
@@ -85,5 +85,5 @@ if [[ -a ~/.localrc ]]; then
 fi
 
 # BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-default.dark.sh"
-BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-twilight.dark.sh"
+BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-solarized.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

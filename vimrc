@@ -66,6 +66,7 @@ Bundle 'mgutz/vim-colors'
 Bundle 'ehamberg/vim-cute-python'
 Bundle 'bling/vim-airline'
 
+Plugin 'chriskempson/base16-vim'
 " Required after vundle plugin definitions
 filetype plugin indent on
 
@@ -111,7 +112,7 @@ set nowrap        " don't wrap lines
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
-                  "  case-sensitive otherwise
+                   " case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set history=1000         " remember more commands and search history
@@ -128,7 +129,7 @@ endif
 
 " Default background & theme
 set background=dark
-colorscheme darkblue 
+colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
