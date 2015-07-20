@@ -1,0 +1,56 @@
+[user]
+  email = 
+  name = 
+
+[alias]
+  pul = pull --rebase
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  di = diff --color-words
+  df = diff
+  dc = diff --cached
+  noffmerge = merge --no-ff
+  who = shortlog -s --
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit  --date-order
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all  --date-order
+  pom = push origin master
+  p = push origin HEAD
+  l = log --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative  --date-order
+  lg1 = log --graph --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit  --date=relative  --date-order
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  la = log --graph --all --pretty=format:'%C(yellow)%h%Cred%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative  --date-order
+  uncommit = reset --soft HEAD~1
+  undo = reset --hard HEAD~1
+  unmerge = reset --merge ORIG_HEAD
+  rmdeleted = !"git status --porcelain | grep \"^ D \" | cut -b 3- | xargs git rm"
+  feature = git-feature
+  info = info
+  ignore = ignore
+  submodule = submodule
+  nomerged = branch
+  nm = branch --no-merged
+
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+
+
+[core]
+  excludesfile = ~/gitignore
+  mergeoptions = --no-edit
+
+[push]
+  default = simple
+
+[credential]
+  helper = cache --timeout 228800
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+  tool = fugitive
+

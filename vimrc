@@ -129,7 +129,7 @@ endif
 
 " Default background & theme
 set background=dark
-colorscheme solarized
+colorscheme default
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
