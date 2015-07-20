@@ -6,6 +6,7 @@ echo 'Setting up symlinks'
 ln -sf $DOTFILES/zshrc $HOME/.zshrc
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
+ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 
 if [ ! -d "~/.vim/bundle/vundle" ]; then
 	echo 'Installing Vundle'
