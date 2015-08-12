@@ -50,7 +50,7 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo jsontools tmux)
+plugins=(git sudo jsontools tmux z)
 
 
 # User configuration
@@ -88,4 +88,5 @@ fi
 BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-solarized.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+. ~/.oh-my-zsh/plugins/z/z.sh
 if [ "$TMUX" = "" ]; then tmux; fi
