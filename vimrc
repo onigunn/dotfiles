@@ -129,11 +129,8 @@ endif
 
 " Default background & theme
 " set background=dark
-if has('gui_running')
-          set background=light
-              else
-                        set background=dark
-                            endif
+set background=dark
+let g:solarized_termcolors = 256
 colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
