@@ -128,8 +128,13 @@ if has("gui_running")
 endif
 
 " Default background & theme
-set background=dark
-colorscheme default
+" set background=dark
+if has('gui_running')
+          set background=light
+              else
+                        set background=dark
+                            endif
+colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
