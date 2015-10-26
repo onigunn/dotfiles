@@ -84,4 +84,4 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-# if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; then tmux; fi
