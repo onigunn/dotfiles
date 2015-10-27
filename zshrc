@@ -3,7 +3,7 @@ export DOTFILES=~/.dotfiles
 export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
-# [ -z "$TMUX" ] && export TERM=screen-256color
+[ -z "$TMUX" ] && export TERM=screen-256color
 
 
 # Set name of the theme to load.
