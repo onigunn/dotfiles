@@ -3,14 +3,15 @@ export DOTFILES=~/.dotfiles
 export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
-[ -z "$TMUX" ] && export TERM=screen-256color
+# [ -z "$TMUX" ] && export TERM=screen-256color
+# export TERM=screen-256color
 
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+ZSH_THEME="afowler"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -77,11 +78,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-stty -ixon
+# stty -ixon
 source ~/.dotfiles/aliases 
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux; fi
