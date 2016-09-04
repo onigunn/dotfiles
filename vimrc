@@ -129,9 +129,9 @@ endif
 
 " Default background & theme
 " set background=dark
-set background=dark
+" set background=dark
 let g:solarized_termcolors = 256
-colorscheme default
+colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
