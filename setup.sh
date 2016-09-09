@@ -18,9 +18,9 @@ if [ ! -d "~/.oh-my-zsh" ]; then
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
-if [ -d "$DOTFILES/base16-shell" ]; then
-    rm -rf $DOTFILES/base16-shell
-fi
-
-echo 'Cloning base16 shell'
-git clone https://github.com/chriskempson/base16-shell.git $DOTFILES/base16-shell
+# if [ -d "$DOTFILES/base16-shell" ]; then
+#     rm -rf $DOTFILES/base16-shell
+# fi
+#
+# echo 'Cloning base16 shell'
+# git clone https://github.com/chriskempson/base16-shell.git $DOTFILES/base16-shell

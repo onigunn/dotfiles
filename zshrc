@@ -11,7 +11,7 @@ export EDITOR='vim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="afowler"
+ZSH_THEME="candy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +51,7 @@ ZSH_THEME="afowler"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo jsontools tmux z)
+plugins=(git sudo jsontools tmux autojump laravel composer vagrant)
 
 
 # User configuration

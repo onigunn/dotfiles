@@ -31,9 +31,9 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'luochen1990/rainbow'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-signify'
-" Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 " Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'fatih/vim-go'
+" Bundle 'fatih/vim-go'
 
 " Syntaxes
 Bundle 'leshill/vim-json'
@@ -60,13 +60,14 @@ Bundle 'ntpeters/vim-better-whitespace'
 Plugin 'mattn/emmet-vim'
 
 " Fun, but not useful
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'skammer/vim-css-color'
-Bundle 'mgutz/vim-colors'
+" Bundle 'altercation/vim-colors-solarized'
+" Bundle 'skammer/vim-css-color'
+" Bundle 'mgutz/vim-colors'
 " Bundle 'ehamberg/vim-cute-python'
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 
-Plugin 'chriskempson/base16-vim'
+" Plugin 'chriskempson/base16-vim'
+Plugin 'dracula/vim'
 " Required after vundle plugin definitions
 filetype plugin indent on
 
@@ -120,7 +121,6 @@ set undolevels=1000      " use many muchos levels of undo
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set guifont=Inconsolata\ for\ Powerline:h13
 
 " Remove the toolbar if we're running under a GUI (e.g. MacVIM).
 if has("gui_running")
@@ -131,7 +131,7 @@ endif
 " set background=dark
 " set background=dark
 let g:solarized_termcolors = 256
-colorscheme solarized
+colorscheme dracula
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
@@ -225,8 +225,8 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Pyflakes
 "autocmd BufWritePost *.py call Flake8()
-let g:flake8_ignore="E128,E501"
-let g:syntastic_python_checker_args='--ignore=E501,E128'
+" let g:flake8_ignore="E128,E501"
+" let g:syntastic_python_checker_args='--ignore=E501,E128'
 
 " Gist
 let g:gist_clip_command = 'pbcopy'
@@ -235,10 +235,10 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " TagBar
-nnoremap <silent> <F2> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
-let g:tagbar_autoshowtag = 1
-let g:tagbar_autofocus = 1
+" nnoremap <silent> <F2> :TagbarToggle<CR>
+" let g:tagbar_ctags_bin = '/usr/bin/ctags'
+" let g:tagbar_autoshowtag = 1
+" let g:tagbar_autofocus = 1
 
 " crtl-p
 let g:ctrlp_map = '<c-p>'
@@ -274,10 +274,10 @@ if !exists('g:airline_symbols')
 endif
 
 " NerdTree
-map <leader>t :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$']
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_open_on_console_startup = 0
+" let g:nerdtree_tabs_open_on_gui_startup = 0
+" let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S> :update<CR>
