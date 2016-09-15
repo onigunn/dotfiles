@@ -254,7 +254,7 @@ let g:ctrlp_use_caching = 1 " enable caching
 let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache evertime
 let g:ctrlp_show_hidden = 0 " don't show me dotfiles
 let g:ctrlp_mruf_max = 250 " number of recently opened files
-nmap ; :CtrlPBuffer<CR>
+nmap <C-E> :CtrlPBuffer<CR>
 nmap <leader>f :CtrlP<CR>
 
 " Double rainbow - What does it mean!?
