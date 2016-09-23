@@ -10,7 +10,8 @@ ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 
 if [ ! -d "~/.vim/bundle/vundle" ]; then
 	echo 'Installing Vundle'
-	git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	# git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 if [ ! -d "~/.oh-my-zsh" ]; then

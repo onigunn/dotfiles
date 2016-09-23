@@ -3,72 +3,55 @@ set encoding=utf-8
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Vundle help
 """"""""""""""
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 
 " VCS
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " System
-" Bundle 'vim-scripts/Gist.vim'
-" Bundle 'majutsushi/tagbar'
-Bundle 'rking/ag.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'Raimondi/delimitMate'
-Bundle 'luochen1990/rainbow'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mhinz/vim-signify'
-Bundle 'scrooloose/nerdtree'
-" Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'fatih/vim-go'
+" Plugin 'vim-scripts/Gist.vim'
+" Plugin 'majutsushi/tagbar'
+Plugin 'rking/ag.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'Raimondi/delimitMate'
+Plugin 'luochen1990/rainbow'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-signify'
+Plugin 'scrooloose/nerdtree'
 
 " Syntaxes
-Bundle 'leshill/vim-json'
-" Bundle 'puppetlabs/puppet-syntax-vim'
-" Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'othree/html5.vim'
-" Bundle 'itspriddle/vim-jquery'
-" Bundle 'atourino/jinja.vim'
-" Bundle 'saltstack/salt-vim'
-Bundle 'ntpeters/vim-better-whitespace'
-" Bundle 'Valloric/YoucCompleteMe'
-" Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'Shougo/neocomplcache.vim'
-
-" Python
-" Bundle 'nvie/vim-flake8'
-" Bundle 'fs111/pydoc.vim'
-
-" Ruby
-" Bundle "vim-ruby/vim-ruby"
-" Bundle 'tpope/vim-endwise'
+Plugin 'leshill/vim-json'
+Plugin 'othree/html5.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'valloric/YouCompleteMe'
 
 " Syntax Helper
 Plugin 'mattn/emmet-vim'
+Plugin 'stephpy/vim-php-cs-fixer'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
 
-" Fun, but not useful
-" Bundle 'altercation/vim-colors-solarized'
-" Bundle 'skammer/vim-css-color'
-" Bundle 'mgutz/vim-colors'
-" Bundle 'ehamberg/vim-cute-python'
-" Bundle 'bling/vim-airline'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " Plugin 'chriskempson/base16-vim'
 Plugin 'dracula/vim'
 " Required after vundle plugin definitions
+call vundle#end()
 filetype plugin indent on
 
 " Change leader
@@ -257,6 +240,16 @@ let g:ctrlp_mruf_max = 250 " number of recently opened files
 nmap <C-E> :CtrlPBuffer<CR>
 nmap <leader>f :CtrlP<CR>
 
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  "   " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects
+  " .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g " --ignore-dir={"node*modules","build","log","*.jpg","tmp","*.png","*.gif","bower_components","dist"}'
+endif"
+
 " Double rainbow - What does it mean!?
 let g:rainbow_active = 1
 
@@ -280,9 +273,14 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Use CTRL-S for saving, also in Insert mode
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
+" noremap <C-S> :update<CR>
+" vnoremap <C-S> <C-C>:update<CR>
+" inoremap <C-S> <C-O>:update<CR>
 
-" Custom remappings
+" PHP-CS-Fixer
+" nnoremap <silent><leader>l :call PhpCsFixerFixFile()<CR>
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-f>"
