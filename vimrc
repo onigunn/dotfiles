@@ -202,6 +202,9 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
 
+" Set blade templates to html file type
+au BufNewFile,BufRead *.blade.php set filetype=html
+
 
 " Plugin Configurations
 """""""""""""""""""""""
