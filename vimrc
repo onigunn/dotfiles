@@ -29,7 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
 Plugin 'luochen1990/rainbow'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlp/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'scrooloose/nerdtree'
 
