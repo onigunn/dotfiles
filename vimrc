@@ -250,8 +250,10 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects
   " .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g " --ignore-dir={"node*modules","build","log","*.jpg","tmp","*.png","*.gif","bower_components","dist"}'
-endif"
+  let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
+    " ag is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
+endif
 
 " Double rainbow - What does it mean!?
 let g:rainbow_active = 1
