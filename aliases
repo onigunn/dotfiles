@@ -3,5 +3,5 @@ alias git-p-production="gco production && git noffmerge master && git p && gcm &
 alias git-p-staging="gco staging && git noffmerge master && git p && gcm && git p"
 alias git-p-preview="gco preview && git noffmerge master && git p && gcm && git p"
 alias git-p-online="gco online && git noffmerge master && git p && gcm && git p"
-
 alias show-user-installed-packages="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
+alias rrsync="rsync -avhz -P"
