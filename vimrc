@@ -37,16 +37,16 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'leshill/vim-json'
 Plugin 'othree/html5.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'valloric/YouCompleteMe'
+" Plugin 'valloric/YouCompleteMe'
 
 " Syntax Helper
 Plugin 'mattn/emmet-vim'
-Plugin 'stephpy/vim-php-cs-fixer'
+" Plugin 'stephpy/vim-php-cs-fixer'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " Plugin 'chriskempson/base16-vim'
 Plugin 'dracula/vim'
@@ -175,7 +175,7 @@ autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 sh
 autocmd FileType php setlocal colorcolumn=100
 
 " HTML configurations
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
 
 " Python configurations
 autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
@@ -289,3 +289,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-f>"
+
+" maps CTRL+W to close current buffer
+:map <C-W> :bd<CR>
