@@ -9,7 +9,7 @@ ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 
-if [! -d "~/.dotfiles/base16-shell"]; then
+if [ ! -d "~/.dotfiles/base16-shell" ]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.dotfiles/base16-shell
 fi
 
