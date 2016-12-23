@@ -47,8 +47,9 @@ Plugin 'mattn/emmet-vim'
 
 " Snippets are separated from the engine. Add this if you want them:
 " Plugin 'honza/vim-snippets'
-
-" Plugin 'chriskempson/base16-vim'
+ 
+" Colors... fancy colors
+Plugin 'chriskempson/base16-vim'
 Plugin 'dracula/vim'
 " Required after vundle plugin definitions
 call vundle#end()
@@ -292,3 +293,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-f>"
 
 " maps CTRL+W to close current buffer
 :map <C-W> :bd<CR>
+
+" source base 16 .vimrc-background
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
