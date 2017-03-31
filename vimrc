@@ -215,11 +215,21 @@ au BufNewFile,BufRead *.blade.php set filetype=html
 " let g:flake8_ignore="E128,E501"
 " let g:syntastic_python_checker_args='--ignore=E501,E128'
 
+" Syntasic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Gist
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 2
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+" let g:gist_clip_command = 'pbcopy'
+" let g:gist_detect_filetype = 2
+" let g:gist_show_privates = 1
+" let g:gist_post_private = 1
 
 " TagBar
 " nnoremap <silent> <F2> :TagbarToggle<CR>
@@ -282,9 +292,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " noremap <C-S> :update<CR>
 " vnoremap <C-S> <C-C>:update<CR>
 " inoremap <C-S> <C-O>:update<CR>
-
-" PHP-CS-Fixer
-" nnoremap <silent><leader>l :call PhpCsFixerFixFile()<CR>
+let g:NERDTreeQuitOnOpen = 1
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -299,3 +307,6 @@ if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 endif
+
+" Buffer Remaps
+map <leader>w :bd!<CR>
