@@ -3,8 +3,8 @@ export DOTFILES=~/.dotfiles
 export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
-# [ -z "$TMUX" ] && export TERM=screen-256color
-# export TERM=screen-256color
+# [ -z "$TMUX" ] && export TERM=rxvt-unicode-256color
+# export TERM=rxvt-unicode-256color
 
 BASE16_SHELL=$HOME/.dotfiles/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

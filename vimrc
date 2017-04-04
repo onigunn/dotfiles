@@ -50,7 +50,14 @@ Plugin 'mattn/emmet-vim'
  
 " Colors... fancy colors
 Plugin 'chriskempson/base16-vim'
-Plugin 'dracula/vim'
+
+
+" Testing PLugins
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+
 " Required after vundle plugin definitions
 call vundle#end()
 filetype plugin indent on
@@ -86,6 +93,7 @@ au VimResized * exe "normal! \<c-w>="
 
 " Basics
 syntax enable
+set relativenumber
 set number        " always show line numbers
 set hidden        " Allow un-saved buffers in background
 set clipboard=unnamed " Share system clipboard.
@@ -115,7 +123,7 @@ endif
 " set background=dark
 " set background=dark
 let g:solarized_termcolors = 256
-colorscheme dracula
+" colorscheme dracula
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
