@@ -281,4 +281,4 @@ map <leader>w :bd!<CR>
 :map <leader>l :ALEToggle<CR>
 
 " clear search highlighting
-:map <leader>c :let @/ = ""<CR>
+nnoremap <leader>c :noh<CR><CR>
