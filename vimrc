@@ -21,32 +21,26 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 
 " System
-" Plugin 'vim-scripts/Gist.vim'
-" Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
 Plugin 'luochen1990/rainbow'
-Plugin 'ctrlp/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'scrooloose/nerdtree'
+Plugin 'w0rp/ale'
 
 " Syntaxes
 Plugin 'leshill/vim-json'
 Plugin 'othree/html5.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-" Plugin 'valloric/YouCompleteMe'
+Plugin 'posva/vim-vue'
 
 " Syntax Helper
 Plugin 'mattn/emmet-vim'
-" Plugin 'stephpy/vim-php-cs-fixer'
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
  
 " Colors... fancy colors
 Plugin 'chriskempson/base16-vim'
@@ -54,8 +48,8 @@ Plugin 'chriskempson/base16-vim'
 
 " Testing PLugins
 Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 
 
 " Required after vundle plugin definitions
@@ -217,34 +211,6 @@ au BufNewFile,BufRead *.blade.php set filetype=html
 
 " Plugin Configurations
 """""""""""""""""""""""
-
-" Pyflakes
-"autocmd BufWritePost *.py call Flake8()
-" let g:flake8_ignore="E128,E501"
-" let g:syntastic_python_checker_args='--ignore=E501,E128'
-
-" Syntasic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Gist
-" let g:gist_clip_command = 'pbcopy'
-" let g:gist_detect_filetype = 2
-" let g:gist_show_privates = 1
-" let g:gist_post_private = 1
-
-" TagBar
-" nnoremap <silent> <F2> :TagbarToggle<CR>
-" let g:tagbar_ctags_bin = '/usr/bin/ctags'
-" let g:tagbar_autoshowtag = 1
-" let g:tagbar_autofocus = 1
-
 " crtl-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'  " search anything (in files, buffers and MRU files at the same time.)
@@ -282,16 +248,6 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_puppet_lint_disable = 0
 
-" Airline configs
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$']
@@ -320,3 +276,9 @@ endif
 
 " Buffer Remaps
 map <leader>w :bd!<CR>
+
+" ALE
+:map <leader>l :ALEToggle<CR>
+
+" clear search highlighting
+:map <leader>c :let @/ = ""<CR>
