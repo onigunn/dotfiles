@@ -50,7 +50,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'easymotion/vim-easymotion'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
-
+Plugin 'mileszs/ack.vim'
 
 " Required after vundle plugin definitions
 call vundle#end()
@@ -225,7 +225,7 @@ let g:ctrlp_use_caching = 1 " enable caching
 let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache evertime
 let g:ctrlp_show_hidden = 0 " don't show me dotfiles
 let g:ctrlp_mruf_max = 250 " number of recently opened files
-nmap <C-E> :CtrlPBuffer<CR>
+nmap <leader>e :CtrlPBuffer<CR>
 nmap <leader>f :CtrlP<CR>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -260,11 +260,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " inoremap <C-S> <C-O>:update<CR>
 let g:NERDTreeQuitOnOpen = 1
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-f>"
-
 " maps CTRL+W to close current buffer
 :map <C-W> :bd<CR>
 
@@ -282,3 +277,30 @@ map <leader>w :bd!<CR>
 
 " clear search highlighting
 nnoremap <leader>c :noh<CR><CR>
+
+""" Testing
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Ack
+" Use ag if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" Abbrevations
+iabbrev jd console.log();
+iabbrev dd \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump();
