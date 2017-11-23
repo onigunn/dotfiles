@@ -24,9 +24,9 @@ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
-if [ ! -d "$DOTFILES/powerline-fonts/" ]; then
-  echo "Installing powerline patched fonts"
-  cd $DOTFILES
-  git clone https://github.com/powerline/fonts.git powerline-fonts && cd powerline-fonts && sh install.sh
-fi
+# if [ ! -d "$DOTFILES/powerline-fonts/" ]; then
+#   echo "Installing powerline patched fonts"
+#   cd $DOTFILES
+#   git clone https://github.com/powerline/fonts.git powerline-fonts && cd powerline-fonts && sh install.sh
+# fi
 
