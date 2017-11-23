@@ -40,16 +40,11 @@ Plugin 'posva/vim-vue'
 " Syntax Helper
 Plugin 'mattn/emmet-vim'
 
-" Snippets are separated from the engine. Add this if you want them:
- 
-" Colors... fancy colors
 Plugin 'chriskempson/base16-vim'
 
 
 " Testing PLugins
 Plugin 'easymotion/vim-easymotion'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mileszs/ack.vim'
 
 " Required after vundle plugin definitions
@@ -78,9 +73,9 @@ let g:netrw_liststyle= 1 " Tree-mode
 let g:netrw_list_hide= '.*\.swp$,.*/$'
 
 " Save when losing focus
-set autowriteall " Auto-save files when switching buffers or leaving vim.
-au FocusLost * silent! :wa
-au TabLeave * silent! :wa
+" set autowriteall " Auto-save files when switching buffers or leaving vim.
+" au FocusLost * silent! :wa
+" au TabLeave * silent! :wa
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -234,10 +229,9 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects
-  " .gitignore
   let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
     " ag is fast enough that CtrlP doesn't need to cache
-  " let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 0
 endif
 
 " Double rainbow - What does it mean!?
@@ -259,9 +253,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " vnoremap <C-S> <C-C>:update<CR>
 " inoremap <C-S> <C-O>:update<CR>
 let g:NERDTreeQuitOnOpen = 1
-
-" maps CTRL+W to close current buffer
-:map <C-W> :bd<CR>
 
 " source base 16 .vimrc-background
 if filereadable(expand("~/.vimrc_background"))
@@ -299,7 +290,7 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <leader>F :Ack!<Space>
 
 " Abbrevations
 iabbrev jd console.log();
