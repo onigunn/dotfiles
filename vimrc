@@ -1,21 +1,12 @@
-
 set encoding=utf-8
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
-" Vundle help
-""""""""""""""
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install(update) bundles
-" :PluginSearch(!) foo - search(or refresh cache first) for foo
-" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
-
 
 " VCS
 Plugin 'tpope/vim-fugitive'
@@ -28,8 +19,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'luochen1990/rainbow'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
-Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'w0rp/ale'
 
 " Syntaxes
 Plugin 'leshill/vim-json'
@@ -40,12 +31,34 @@ Plugin 'posva/vim-vue'
 " Syntax Helper
 Plugin 'mattn/emmet-vim'
 
-Plugin 'chriskempson/base16-vim'
-
-
 " Testing PLugins
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mileszs/ack.vim'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'jonathanfilip/vim-lucius'
+" Track the engine.
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+
+" TYPO3 related
+Plugin 'elmar-hinz/vim.typoscript'
+Plugin 'mipmip/vim-fluid'
+
+" Vim plugin that displays tags in a window, ordered by scope
+Plugin 'majutsushi/tagbar'
+
+" NERDtree replacement, lightweigth - based on
+Plugin 'tpope/vim-vinegar' 
+
+" ghetto HTML/XML mappings (formerly allml.vim)
+Plugin 'tpope/vim-ragtag'
+
+" light statusline
+Plugin 'itchyny/lightline.vim'
+" Plugin 'craigemery/vim-autotag'
+Plugin 'sjl/badwolf'
+
+Plugin 'andreypopp/vim-colors-plain'
 
 " Required after vundle plugin definitions
 call vundle#end()
@@ -72,10 +85,6 @@ set wildignore+=**.class                          " Cursed Java class files
 let g:netrw_liststyle= 1 " Tree-mode
 let g:netrw_list_hide= '.*\.swp$,.*/$'
 
-" Save when losing focus
-" set autowriteall " Auto-save files when switching buffers or leaving vim.
-" au FocusLost * silent! :wa
-" au TabLeave * silent! :wa
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -106,13 +115,21 @@ set noerrorbells         " don't beep
 " Remove the toolbar if we're running under a GUI (e.g. MacVIM).
 if has("gui_running")
   set guioptions=-t
+  " Save when losing focus
+  " set autowriteall " Auto-save files when switching buffers or leaving vim.
+  " au FocusLost * silent! :wa
+  " au TabLeave * silent! :wa
+  " increase font size in MacVIM
+  set guifont=Menlo\ Regular:h12
+  " check one time after 4s of inactivity in normal mode
+  set autoread
+  au CursorHold * checktime
 endif
 
 " Default background & theme
-" set background=dark
-" set background=dark
-let g:solarized_termcolors = 256
-" colorscheme dracula
+set background=dark
+colorscheme plain
+" colorscheme lucius
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
@@ -130,35 +147,20 @@ set copyindent    " copy the previous indentation on autoindenting
 
 set expandtab
 " General Code Folding
+set foldenable
 set foldmethod=indent
+set foldlevelstart=99
 set foldlevel=99
+
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" I CAN HAZ NORMAL REGEXES?
-nnoremap / /\v
-vnoremap / /\v
-
-" Make sure we hilight extra whitespace in the most annoying way possible.
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-
-
 " General auto-commands
 autocmd FileType * setlocal colorcolumn=0
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-
-" Get rid of trailing whitespace highlighting in mutt.
-autocmd FileType mail highlight clear ExtraWhitespace
-autocmd FileType mail setlocal listchars=
-
-" Toggle spellcheck in normal mode
-:map <F5> :setlocal spell! spelllang=en_us<CR>
-
 
 " Markdown configurations
 augroup markdown
@@ -170,32 +172,16 @@ augroup END
 autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=80
 
 " PHP Configurations
-autocmd FileType php setlocal colorcolumn=100
+autocmd FileType php setlocal colorcolumn=100 tabstop=4 softtabstop=4 shiftwidth=4
 
 " HTML configurations
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
-
-" Python configurations
-autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
-autocmd FileType python setlocal colorcolumn=80
-autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
-autocmd FileType python autocmd BufWritePre * :%s/\s\+$//e
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Javascript configurations
 au BufNewFile,BufReadPost *.js setlocal shiftwidth=2 expandtab
 
 " Ensure that JSON files have their filetype properly set.
 au BufRead,BufNewFile *.json set filetype=json
-
-" Puppet configurations
-au FileType puppet setlocal noexpandtab
-
-" Get jinja filetype selection working correctly for *.jinja.html files.
-au BufNewFile,BufReadPost *.jinja* setlocal filetype=htmljinja
-
-" Get rid of search hilighting with ,/
-nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
@@ -230,8 +216,6 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects
   let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
-    " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 " Double rainbow - What does it mean!?
@@ -243,43 +227,41 @@ let g:syntastic_auto_jump = 0
 let g:syntastic_puppet_lint_disable = 0
 
 " NerdTree
-map <leader>n :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
+" map <leader>n :NERDTreeToggle<CR>
+" let NERDTreeIgnore=['\.pyc$', '\~$']
 " let g:nerdtree_tabs_open_on_gui_startup = 0
 " let g:nerdtree_tabs_open_on_console_startup = 0
 
-" Use CTRL-S for saving, also in Insert mode
-" noremap <C-S> :update<CR>
-" vnoremap <C-S> <C-C>:update<CR>
-" inoremap <C-S> <C-O>:update<CR>
-let g:NERDTreeQuitOnOpen = 1
-
-" source base 16 .vimrc-background
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
 
 " Buffer Remaps
-map <leader>w :bd!<CR>
+map <silent> <leader>w :bd<cr>:tabclose<cr>gT
+map <leader>w! :bd!<CR>
+
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+map <leader>t<leader> :tabnext 
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
 " ALE
 :map <leader>l :ALEToggle<CR>
+let g:ale_lint_on_enter = 0
 
 " clear search highlighting
-nnoremap <leader>c :noh<CR><CR>
+nnoremap <silent> <leader-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><leader-c>
 
 """ Testing
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsSnippetDirectories=["~/.vim/og-snippets"]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -292,6 +274,9 @@ endif
 cnoreabbrev Ack Ack!
 nnoremap <leader>F :Ack!<Space>
 
-" Abbrevations
-iabbrev jd console.log();
-iabbrev dd \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump();
+" Tagbar
+nmap <leader>r :TagbarOpenAutoClose<cr>
+nmap <leader>r! :TagbarToggle<cr>
+
+" silent switch to current file directory
+autocmd BufEnter * silent! lcd %:p:h

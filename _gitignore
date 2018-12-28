@@ -6,3 +6,16 @@ Homestead.json
 Homestead.yaml
 .env
 /.vagrant
+log/capistrano.log
+app/etc/env.php
+generated/code/
+pub/static/
+var/cache/
+var/composer_home/
+var/import_history/
+var/importexport/
+var/log/
+var/view_preprocessed/
+pub/media
+.DS_Store
+.vscode
