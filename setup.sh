@@ -7,7 +7,7 @@ ln -sf $DOTFILES/Xdefaults $HOME/.Xdefaults
 ln -sf $DOTFILES/zshrc $HOME/.zshrc
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
-ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
+# ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 
 if [ ! -d "$DOTFILES/base16-shell/" ]; then
   git clone https://github.com/chriskempson/base16-shell.git $DOTFILES/base16-shell
