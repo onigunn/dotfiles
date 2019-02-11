@@ -1,0 +1,16 @@
+snippet fluid-file "fluid:template"
+<html xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+	${0:${VISUAL}}
+</html>
+endsnippet
+
+snippet fif "fluid if"
+<f:if condition="$1">
+	$0
+</f:if>
+endsnippet
+
+snippet fda "fluid f:debug all"
+<f:debug>{_all}</f:debug>
+endsnippet
