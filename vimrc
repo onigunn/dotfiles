@@ -4,62 +4,19 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
-" VCS
-Plugin 'tpope/vim-fugitive'
-
-" System
 Plugin 'rking/ag.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
-Plugin 'Raimondi/delimitMate'
-Plugin 'luochen1990/rainbow'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-signify'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'w0rp/ale'
-
-" Syntaxes
-Plugin 'leshill/vim-json'
-Plugin 'othree/html5.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'posva/vim-vue'
-
-" Syntax Helper
-Plugin 'mattn/emmet-vim'
-
-" Testing PLugins
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mileszs/ack.vim'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'jonathanfilip/vim-lucius'
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-
-" TYPO3 related
-Plugin 'elmar-hinz/vim.typoscript'
-Plugin 'mipmip/vim-fluid'
-
-" Vim plugin that displays tags in a window, ordered by scope
-Plugin 'majutsushi/tagbar'
-
-" NERDtree replacement, lightweigth - based on
-Plugin 'tpope/vim-vinegar' 
-
-" ghetto HTML/XML mappings (formerly allml.vim)
-Plugin 'tpope/vim-ragtag'
-
-" light statusline
-Plugin 'itchyny/lightline.vim'
-" Plugin 'craigemery/vim-autotag'
-Plugin 'sjl/badwolf'
-
-Plugin 'andreypopp/vim-colors-plain'
-
+Plugin 'SirVer/ultisnips'
+" " TYPO3 related
+" Plugin 'elmar-hinz/vim.typoscript'
+" Plugin 'mipmip/vim-fluid'
+"
 " Required after vundle plugin definitions
 call vundle#end()
 filetype plugin indent on
@@ -128,7 +85,7 @@ endif
 
 " Default background & theme
 set background=dark
-colorscheme plain
+colorscheme default
 " colorscheme lucius
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
@@ -173,6 +130,7 @@ autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 sh
 
 " PHP Configurations
 autocmd FileType php setlocal colorcolumn=100 tabstop=4 softtabstop=4 shiftwidth=4
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
 
 " HTML configurations
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
@@ -226,13 +184,6 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_puppet_lint_disable = 0
 
-" NerdTree
-" map <leader>n :NERDTreeToggle<CR>
-" let NERDTreeIgnore=['\.pyc$', '\~$']
-" let g:nerdtree_tabs_open_on_gui_startup = 0
-" let g:nerdtree_tabs_open_on_console_startup = 0
-
-
 " Buffer Remaps
 map <silent> <leader>w :bd<cr>:tabclose<cr>gT
 map <leader>w! :bd!<CR>
@@ -248,20 +199,16 @@ let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
-" ALE
-:map <leader>l :ALEToggle<CR>
-let g:ale_lint_on_enter = 0
-
 " clear search highlighting
 nnoremap <silent> <leader-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><leader-c>
 
-""" Testing
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" let g:UltiSnipsSnippetDirectories=["~/.vim/og-snippets"]
+let g:UltiSnipsSnippetDirectories=["/home/oni/.dotfiles/ultisnips-snippets"]
+let g:UltiSnipsSnippetsDir="/home/oni/.dotfiles/ultisnips-snippets"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -280,3 +227,6 @@ nmap <leader>r! :TagbarToggle<cr>
 
 " silent switch to current file directory
 autocmd BufEnter * silent! lcd %:p:h
+
+" Gutentags
+let g:gutentags_cache_dir="/home/oni/tags/"
